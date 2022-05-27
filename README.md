@@ -7,3 +7,5 @@ https://www.poo.zone. payment router v2 of poo
 - Router - 0xd6a42C83ECd45237D47e32B7C7dab29dc0f0Dc94
 ## BNB Smart Chain
 - Router - 0x790125EEaF2F846DcfA8B23180Dd92a255FEA77D
+## Harmony Chain
+- Router - 0xfb18EECcFFa50b08b1409F4c614947c0C58aE35A
