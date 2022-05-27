@@ -21,6 +21,12 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 require('dotenv').config();
 module.exports = {
+  plugins: [
+    'truffle-plugin-verify'
+  ],
+  api_keys: {
+    bscscan: 'KEY'
+  },
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -67,6 +73,13 @@ module.exports = {
         return new HDWalletProvider(process.env.mnemonic, "https://ropsten.infura.io/v3/"+ process.env.infurakey);
       },
       network_id: "3"
+    },
+    harmony: {
+      provider: function() {
+        return new HDWalletProvider(process.env.mnemonic, "https://api.s0.t.hmny.io");
+      },
+      timeoutBlocks: 200,
+      network_id: "*"
     },
     //
     development: {

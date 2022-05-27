@@ -16,6 +16,10 @@ module.exports = function (deployer, network) {
     _token = '0xc7198437980c041c805a1edcba50c1ce5db95118';
     _recipient = '0x8c143a43AB69D6deB939328Fbc7fe67751052a3D';
     _oracle = '0x0A77230d17318075983913bC2145DB16C7366156';
+  }  else if (network == 'harmony') {
+    _token = '0x985458E523dB3d53125813eD68c274899e9DfAb4';
+    _recipient = '0x68ec74dc5c971041d4b530a228e79e2562ca794c';
+    _oracle = '0xdCD81FbbD6c4572A69a534D8b8152c562dA8AbEF';
   }
   deployer.deploy(PaymentRouter, _token, _recipient, _oracle);
 };
