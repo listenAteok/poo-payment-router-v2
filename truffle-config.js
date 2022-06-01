@@ -54,6 +54,8 @@ module.exports = {
       provider: function() {
         return new HDWalletProvider(process.env.mnemonic, "https://api.avax-test.network/ext/bc/C/rpc");
       },
+      timeoutBlocks: 200,
+      networkCheckTimeout: 200000,
       network_id: "43113"
     },
     bnb: {
@@ -117,7 +119,7 @@ module.exports = {
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
-    // timeout: 100000
+    timeout: 100000
   },
 
   // Configure your compilers
