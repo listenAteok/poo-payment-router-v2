@@ -2,10 +2,12 @@
 https://www.poo.zone. payment router v2 of poo 
 # Deployed Contracts / Hash
 ## Ethereum
-- Router - 0x40E200aeD360C0C4B04C7F942fAFa193e0eD6f02
+- Router - 
 ## Avalanche
-- Router - 0xd6a42C83ECd45237D47e32B7C7dab29dc0f0Dc94
+- Router - 
 ## BNB Smart Chain
-- Router - 0x790125EEaF2F846DcfA8B23180Dd92a255FEA77D
+- Router - 0xA764619DA71c064aacbDDCc32757245EAf37c754
 ## Harmony Chain
-- Router - 0xfb18EECcFFa50b08b1409F4c614947c0C58aE35A
+- Router - 
+## Polygon Chain
+- Router - 0x44FF24357851A733bD2a46126DF81D8FaFee523f
