@@ -150,18 +150,24 @@ contract PaymentRouter {
     }
 
     function priceETH(uint func) public view returns(uint256) {
-        uint256 ethUSDPrice = uint256(AggregatorV2V3Interface(ethOracles).latestAnswer());
+        uint256 ethUSDPrice = calculateETHUSDPrice(func);
         uint256 funcUSDPrice = price(func, USD_TOKEN);
-        require(funcUSDPrice > 0 && ethUSDPrice > 0, "No price defined");
-        uint256 oracleDecimal = AggregatorV2V3Interface(ethOracles).decimals();
         uint256 tokenDecimals = IERC20(USD_TOKEN).decimals();
-        if (ethDecimals > oracleDecimal) {
-            ethUSDPrice = ethUSDPrice.mul(10 ** (ethDecimals - oracleDecimal)).div(10 ** ethDecimals);
-        }
         if (ethDecimals > tokenDecimals) {
             funcUSDPrice = funcUSDPrice.mul(10 ** (ethDecimals - tokenDecimals));
         }
-        return funcUSDPrice / ethUSDPrice;
+        require(funcUSDPrice > 0, "No funcUSDPrice defined");
+        require(ethUSDPrice > 0, "No ethUSDPrice defined");
+        return funcUSDPrice.mul(10 ** 6).div(ethUSDPrice);
+    }
+
+    function calculateETHUSDPrice(uint func) public view returns(uint256) {
+      uint256 ethUSDPrice = viewethUSDPrice();
+      uint256 oracleDecimal = AggregatorV2V3Interface(ethOracles).decimals();
+      if (ethDecimals > oracleDecimal) {
+        ethUSDPrice = ethUSDPrice.mul(10 ** (ethDecimals - oracleDecimal));
+      }
+      return ethUSDPrice;
     }
 
     function setPrice(uint256[] memory func_array, address[] memory _payment_token_array, uint256[] memory _price_array) public onlyAdmin virtual {

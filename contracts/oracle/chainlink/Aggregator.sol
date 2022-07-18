@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0
 /**
  *Submitted for verification at BscScan.com on 2020-11-09
 */
